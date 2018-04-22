@@ -1,0 +1,79 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{kpfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\usetikzlibrary{shapes.geometric}
+\tikzstyle{process}=[rectangle,minimum height=1.2cm,minimum width=1.2cm,fill=black!10,font=\sffamily\bfseries,inner sep=2pt]
+\tikzstyle{stream}=[diamond, fill=black!20,font=\sffamily\bfseries,inner sep=2pt]
+\tikzstyle{flow}=[circle,fill=white,draw=black,font=\small,inner sep=2pt]
+\tikzstyle{env}=[circle,fill=black!60,inner sep=2pt]
+\tikzstyle{post}=[->,>=stealth,thin,font=\sffamily\footnotesize,text=black]
+\tikzstyle{hdist}=[node distance=1.8cm]
+\tikzstyle{vdist}=[node distance=3cm]
+\begin{document}
+\pagestyle{empty}
+\begin{tikzpicture} [auto, rounded corners,node distance=1.5cm]%
+ %\draw[step=1,black!10,very thin] (-1,-7) grid (18,4);
+ \draw[draw=none] (-0.5,-6.7) rectangle (17,3.7);
+ \node [env] (V0)  {};
+ \node [flow] (E5) [right of=V0] {$E_5$}; 
+ \node [stream] (F1) [right of=E5] {$F_1$};
+ \node [process] (N1) [right of=F1,hdist]{1};
+ \node [stream] (P1) [right of=N1,hdist] {$P_1$};
+ \node [flow] (E2) [right of=P1] {$E_2$}; 
+ \node [stream] (F3) [right of=E2] {$F_3$};
+ \node [process] (N3) [right of=F3,hdist]{3};
+ \node [stream] (P3) [right of=N3,hdist] {$P_3$};
+ \node [flow] (E7) [right of=P3] {$E_7$}; 
+ \node [env] (W1) [right of=E7]  {};
+ \node [process] (N2) [above of=N3,vdist]{2};
+ \node [stream] (F2) [right of=N2,hdist] {$F_2$};
+ \node [flow] (E6) [above of=P3] {$E_6$};
+ \node [stream] (P2) [left of=N2,hdist] {$P_2$};
+ \node [flow] (E1) [above of=P1] {$E_1$};
+ \node [process] (N4) [below of=N3,vdist]{4};
+ \node [stream] (F4) [left of=N4,hdist] {$F_4$};
+ \node [flow] (E3) [below of=F3] {$E_3$};
+ \node [stream] (P4) [right of=N4,hdist] {$P_4$};
+ \node [flow] (E8) [right of=P4] {$E_8$}; 
+ \node [env] (W2) [right of=E8]  {};
+ \node [process] (N5) [below of=N4,vdist]{5};
+ \node [stream] (F5) [left of=N5,hdist] {$F_5$};
+ \node [flow] (E4) [below of=F4] {$E_4$};
+ \node [stream] (P5) [right of=N5,hdist] {$P_5$};
+ \node [flow] (E9) [right of=P5] {$E_9$}; 
+ \node [env] (W3) [right of=E9]  {};
+ 
+ \draw [post] (V0) -- (E5);
+ \draw [post] (E5) -- (F1);
+ \draw [post] (F1) -- (N1);
+ \draw [post] (N1) -- (P1);
+ \draw [post] (P1) -- (E2);
+ \draw [post] (E2) -- (F3);
+ \draw [post] (F3) -- (N3);
+ \draw [post] (N3) -- (P3);
+ \draw [post] (P3) -- (E7);
+ \draw [post] (E7) -- (W1);
+ \draw [post] (F4) -- (N4);
+ \draw [post] (N4) -- (P4);
+ \draw [post] (P4) -- (E8);
+ \draw [post] (E8) -- (W2);
+ \draw [post] (F5) -- (N5);
+ \draw [post] (N5) -- (P5);
+ \draw [post] (P5) -- (E9);
+ \draw [post] (E9) -- (W3);  
+ \draw [post] (F3) -- (E3);
+ \draw [post] (E3) -- (F4);
+ \draw [post] (F4) -- (E4);
+ \draw [post] (E4) -- (F5); 
+ \draw [post] (P3) -- (E6);
+ \draw [post] (E6) -- (F2);
+ \draw [post] (F2) -- (N2);
+ \draw [post] (N2) -- (P2);
+ \draw [post] (P2) -| (E1);
+ \draw [post] (E1) -- (P1);
+\end{tikzpicture}
+\end{document}

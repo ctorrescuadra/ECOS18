@@ -1,0 +1,45 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{txfonts}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\tikzstyle{flow}=[->,>=stealth,line width=0.5]
+\tikzstyle{texto}=[font=\normalfont,align=center]
+\tikzstyle{nombre}=[font=\sffamily\scriptsize,align=center]
+\tikzstyle{process}=[fill=black!10,line width=1]
+\tikzstyle{number}=[circle,fill=black!20,font=\small,inner sep=3pt]
+\begin{document}
+\pagestyle{empty}
+\begin{tikzpicture}[x=1mm,y=1mm]
+%\draw[step=10,black!20,very thin] (-5,-20) grid (120,80);
+%Processs
+ \path[line width=0mm] (-5,-20) rectangle +(125,100);
+ \draw[process,rounded corners] (35,22.5) rectangle +(20,15);
+ \draw (45,30) node[number] {1};
+ \draw[process] (0,-10)--(0,15)--(20,10)--(20,-5)--cycle;
+ \draw (10,2.5) node[number] {2};
+ \draw[process] (70,10)--(90,15)--(90,-10)--(70,-5)--cycle;
+ \draw (80,2.5) node[number] {3};
+ \draw[process,rounded corners] (80,30) rectangle +(20,15);
+ \draw (90,38) node[number] {4};
+ \draw[process] (90,60)--(100,70)--(90,80)--(80,70)--cycle;
+ \draw (90,70) node[number] {5};
+%Flows
+ \draw[flow] (0,35)--node[right,texto]{$E_0$} (0,15);
+ \draw[flow] (20,10)--(20,30)--node[above,texto]{$E_1$} (35,30);
+ \draw[flow] (55,30)--(70,30)--node[left,texto]{$E_2$} (70,10);
+ \draw[flow] (90,15)--node[right,texto]{$E_3$}(90,30);
+ \draw[flow] (90,45)--node[right,texto]{$E_4$}(90,60);
+ \draw[flow] (45,55)--node[right,texto]{$E_5$} (45,37.5);
+ \draw[flow] (70,2.5)--node[above,texto]{$E_6$} (20,2.5);
+ \draw[flow] (90,2.5)--node[above,texto]{$E_7$}(105,2.5);
+ \draw[flow] (100,38)--node[above,texto]{$E_8$}(115,38);
+ \draw[flow] (100,70)--node[above,texto]{$E_9$}(115,70);
+ \draw (45,25) node[nombre] {Combustor};
+ \draw (10,-4) node[nombre] {Compressor};
+ \draw (80,-4) node[nombre] {Turbine};
+ \draw (90,32) node[nombre] {HRSG};
+ \draw (90,65) node[nombre] {Stack};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{txfonts}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\tikzstyle{arrow}=[->,>=stealth,thin,font=\small,text=black]
+\tikzstyle{optional}=[-,dashed,thin]
+\tikzstyle{texto}=[font=\small,align=center]
+\tikzstyle{process}=[fill=black!10]
+\tikzstyle{number}=[circle,fill=black!20,inner sep=2pt]
+\tikzstyle{empty}=[circle,draw,densely dotted, thin,inner sep=4pt]
+\tikzstyle{virline}=[densely dotted, thin]
+
+\begin{document}
+	\pagestyle{empty}
+	
+\begin{tikzpicture}
+ \draw[draw=none] (-1,-3.5) rectangle (6,1.5);
+ \node[at={(-0.1,0)}] (FS) {
+  \parbox{1.2cm}{\begin{center}\small Fuel\\Streams\end{center}}
+  $\left\{\begin{array}{r}  \\ \\ \\ \end{array} \right.$
+ };
+ \node[at={(5.1,-2)}] (PS) {
+ 	$\left.\begin{array}{r}  \\ \\ \\ \end{array} \right\}$
+ 	\parbox{1.2cm}{\begin{center}\small Product\\Streams\end{center}}
+ };
+ \draw[arrow] (0.5,0.5) --node[above]{$E_1$} (1.5,0.5);
+ \draw[arrow] (0.5,-0.5) --node[above]{$E_2$} (1.5,-0.5);
+ \draw[arrow] (0.5,-1.5) --node[below]{$E_4$} (1.5,-1.5);
+ \draw[process] (1.5,-3.1) rectangle (3.5,1.1);
+ \draw[arrow] (3.5,-0.5) --node[above]{$E_3$} (4.5,-0.5);
+ \draw[arrow] (3.5,-1.5) --node[below]{$E_5$} (4.5,-1.5);
+ \draw[arrow] (3.5,-2.5) --node[below]{$E_6$} (4.5,-2.5);
+ \draw[optional] (1.5,-0.5) -- (3.5,-0.5);
+ \draw[optional] (1.5,-1.5) -- (3.5,-1.5);
+\end{tikzpicture}
+\end{document}

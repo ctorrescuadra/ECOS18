@@ -1,0 +1,23 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{txfonts}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[graphics,tightpage,active]{preview}
+\PreviewEnvironment{tikzpicture}
+\usetikzlibrary{shapes.geometric}
+\tikzstyle{process}=[rectangle,draw=black,minimum height=50mm,minimum width=25mm,fill=black!10,]
+\tikzstyle{virtual}=[diamond, fill=black!20,minimum height=20mm,minimum width=20mm,]
+\tikzstyle{post}=[->,>=stealth,thin,font=\normalsize]
+\tikzstyle{texto}=[font=\normalsize,align=center]
+\begin{document}
+\pagestyle{empty}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\draw[draw=none] (0,-35) rectangle (95,35);
+\node[process] (F) at (70,-5) {};
+\node[virtual] (V) at (35,-5) {F};
+\draw[post] (V) -- (F);
+\draw[post] (10,-5) -- node[below]{$E_i$} (V);
+\draw[post] (V) -- node[left]{$E_j$} (35,-30);
+\end{tikzpicture}
+\end{document}
