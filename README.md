@@ -3,7 +3,7 @@
 
 **Paper publised in:** ECOS 2018
  
-**Authors:** Antonio Valero and César Torres
+**Authors:** César Torres and Antonio Valero
 
 ## Abstract
 
