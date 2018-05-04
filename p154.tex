@@ -4,9 +4,14 @@
 % For PDF setup
 \hypersetup{ % Please edit following fields
        pdfauthor= {C\'esar Torres},%
-       pdftitle    = {A new methodology to compute the Exergy Cost. Part II: The generalized Irreversibility-Cost formula},%
+       pdftitle    = {A new methodology to compute the Exergy Cost\\ Part II: The generalized Irreversibility-Cost formula},%
        pdfsubject  = {ECOS 2018},%
-       pdfkeywords = {Exergy Cost Theory, Thermoeconomics, Productive models}
+       pdfkeywords = {Exergy Cost Theory, Thermoeconomics, Productive models},%
+       colorlinks=true,        % false: boxed links; true: colored links
+       linkcolor=black,         % color of internal links
+       citecolor=black,         % color of links to bibliography
+       filecolor=black,         % color of file links
+       urlcolor=black           % color of external links}
 }
 
 \title{A new methodology to compute the Exergy Cost\\ Part II: The generalized Irreversibility-Cost formula}
@@ -42,9 +47,9 @@
 
 \begin{abstract}%
 \begin{spacing}{1.1}
-The aim of the second part of the paper is to integrate the new approach to compute exergy costs introduced in the first part into Thermoeconomic Input-Output analysis (henceforth ExIO). ExIO is a methodology derived from the Exergy Cost theory to analyse the cost formation process of energy-intensive
-consumption systems. This paper introduces a new and more efficient algorithm to compute the Fuel-Product table, the keystone of ExIO, as well as a new strategy for computing exergy costs. 
-As application of ExIO, a general formula to compute and analyse the irreversibility and waste depletion footprint on the production costs, which includes external costs assessment of system resources, is introduced.
+The aim of the second part of the paper is to integrate the new approach to compute exergy costs introduced in the first part into Thermoeconomic Input-Output analysis (henceforth ExIO). ExIO is a methodology derived from the Exergy Cost Theory to analyse the cost formation process of energy-intensive
+consumption systems. This paper introduces a new and more efficient algorithm to compute the Fuel-Product table, the keycorner of ExIO, as well as a new strategy for computing exergy costs. 
+As application of ExIO, a general formula to compute and analise the irreversibility and waste depletion footprint on the production costs, which includes external costs assessment of system resources, is introduced.
 \end{spacing}
 \end{abstract}
 
@@ -53,11 +58,11 @@ Exergy Cost Theory, Thermoeconomics, Productive models
 \end{keywords}
 
 \section{Introduction}
-Thermoeconomic Input-Output (aka Symbolic Thermoeconomics) is a methodology, based on the \mbox{Exergy} Cost theory \cite{Torres2017}, for the analysis of the productive structure, and the natural resources consumption process in energy systems.
+Thermoeconomic input-output (aka Symbolic thermoeconomics) is a methodology, based on the exergy cost theory \cite{Torres2017}, for the analysis of the productive structure, and the natural resources consumption process in energy systems.
 
-Symbolic Exergoeconomics \cite{Torres1988}, was introduced in 1988, as a technique to obtain general equations, which relate the overall efficiency of an energy system and other thermoeconomic variables as fuel, product, exergy cost, with the efficiency and irreversibility of each component which forms it. By means of these equations, it is possible to analyse the influence of the individual components of the total system. It provides valuable tools for cost accounting, diagnosis, optimization and synthesis of energy system \cite{TADEUS2004,ISE2010}.
+Symbolic Exergoeconomics \cite{Torres1988}, was introduced in 1988, as a technique to obtain general equations, which relate the overall efficiency of an energy system and other thermoeconomic variables as fuel, product, exergy cost, with the efficiency and irreversibility of each component which forms it. By means of these equations, it is possible to analyse the influence of the individual components of the total system. The proposed analysis provides valuable tools for cost accounting, diagnosis, optimization and synthesis of energy system \cite{TADEUS2004,ISE2010}.
 
-The methodology presented in the first part of the paper will be applied to supply a new algorithm to compute the Fuel-Product table, which is the cornerstone of ExIO, as well as a more efficient strategy to compute the production costs.
+The methodology presented in the first part of the paper will be applied to provide a new algorithm to compute the Fuel-Product table, which is the keycorner of ExIO, as well as a more efficient strategy to compute the production costs.
 
 The irreversibility cost formula \cite{Torres09} permits to compute the direct exergy cost as the cumulative exergy consumption, adding to the exergy content all the irreversibility generates to obtain the system products. This formula is valid only if the cost of external equals its exergy. It means, that this only takes into account the irreversibility of the processes inside the boundaries of the system. But, the external resources have been produced by other systems, which also have exergy losses. The effects of these relations on the exergy cost can be analysed by modifying the external assessment of the resources, meanwhile, the way to distribute the cost, based on exergy, remains unaltered. The paper introduces a generalization of the irreversibility cost formula, that includes the cost of external resources.
 
@@ -69,7 +74,7 @@ The first stage to identify the cost process formation consists of building, a p
 The productive structure of an energy system is represented by the Fuel--Product table, see \cref{tab1}, which describes how the production processes are related. It is, which processes produce the exergy resources of each process, and where are used the product exergy of each process. 
 
 \begin{table}[htbp]
-    %\small
+    \small
 	\caption{Fuel-Product Table}
 	\vskip 2pt
 	\begin{tabulary}{\textwidth}{lccCCCCCCc}
@@ -98,7 +103,6 @@ In accordance with this model, the production of one component is used as fuel o
 \vm{P}=\vm{P}_0 + \mbt{E}\,\vm{u}
 \end{equation}
 where $\vm{P}_0=\tm(E_{10},\ldots,E_{n0})$ is a $n \times 1$ vector which contains the exergy values of the final product outputs each component. $\vm{P}$ is a $n \times 1$ vector, whose elements are the exergy of the product for each component. $\mbt{E}$ is a $n \times n$ matrix which contains the internal exergy interchange between process. Its elements $E_{ij}\ge0$ represent the production portion of the $i-$th component that fuels the $j-$th component.
-
 On the other hand, the resources entering each component comes from external resources and/or the production of other components:
 \begin{equation}
 \label{eq:vmf}
@@ -109,7 +113,9 @@ where $\vm{F}_e=\tm(E_{01},\ldots,E_{0n})$ is a $n \times 1$ vector which contai
 The second law states that the resources input each process must be always greater than or equal to its production, therefore: $\vm{F}-\vm{P}=\vm{I} \ge \vm{0}$, where $\vm{I}$~ is a $n \times 1$ vector whose elements contain the irreversibility of each process.
 
 \subsection{The FP Table Builder}
-The fuel-product table is obtained from the analysis of the productive structure of the system. In the case of aggregated systems with a few number of processes under analysis, it could be done graphically, but this method is not feasible for complex structures. In ref.~\cite{TAESS} is described a method to obtain this table using the matrices of the ECT equations model. In this paper, a new method based on the flow-process table is presented. It intends to be more efficient, and to solve some problems for complex structures that appears in the original method based on ECT.
+The fuel-product table is obtained from the analysis of the productive structure of the system. In the case of aggregated systems with a few number of processes under analysis, it could be done graphically, but this method is not feasible for complex structures. In ref.~\cite{TAESS} is described a method to obtain this table using the matrices of the ECT equations model.
+
+In this paper, a new method based on the flow-process table is presented. It intends to be more efficient, and to solve some problems for complex structures that appears in the original method based on ECT.
 
 From the definition of the flow-process table, it leads:
 \begin{align}
@@ -134,21 +140,21 @@ Let ${\vm{M} \equiv \left(\vm{U}_m - \vm{B}\right)^{-1}}$ its inverse matrix, wh
 \end{equation}
 Replacing \cref{eq:etablefp} into \cref{eq:efpb}, it leads:
 \begin{equation}
-\tvm{F}=\left(\tm\bm{\nu}_0 +\tvm{u}_n\, [\vm{P}]\right)\vm{M}\,\bm{\alpha}_F
+\tvm{F}=\left(\bm{\nu}_0 +\tvm{u}_n\, [\vm{P}]\right)\vm{M}\,\bm{\alpha}_F
 \end{equation}
 Therefore, let define:
 \begin{align}
 [\vm{E}] &\equiv [\vm{P}]\, \vm{M}\,\bm{\alpha}_F \label{eq:ectfp}\\
-\tvm{F}_e &\equiv \tm\bm{\nu}_0\,\vm{M}\,\bm{\alpha}_F \label{eq:ectfp2}\\ 
+\tvm{F}_e &\equiv \bm{\nu}_0\,\vm{M}\,\bm{\alpha}_F \label{eq:ectfp2}\\ 
 \vm{P}_0 &\equiv [\vm{P}]\, \vm{M}\,\vm{a}_P \label{eq:ectfp3}
 \end{align}
-These matrices satisfy by construction \cref{eq:vmf}. To check these matrices defines a Fuel-Product table, we need to prove that \cref{eq:ectfp,eq:ectfp2,eq:ectfp3} also satisfies \cref{eq:vmp}.
+The elements of the Fuel-Product table have by construction, all its values non-negatives. 
+These matrices satisfy \cref{eq:vmf}. To check that they define a Fuel-Product table, we need to prove that \cref{eq:ectfp,eq:ectfp2,eq:ectfp3} also satisfies \cref{eq:vmp}.
 
 By \cref{eq:umb}, it leads: $\vm{M}\left(\vm{a}_P+\bm{\alpha}_F\,\vm{u}_n\right)=\vm{u}_m$, therefore:
 \begin{equation}
 \vm{P}_0+\mbt{E}\vm{u}_n=\mbt{P}\vm{M}\left(\vm{a}_P+\bm{\alpha}_F\,\vm{u}_n\right)=\mbt{P}\vm{u}_m=\vm{P}
 \end{equation}
-Moreover, the elements of the Fuel-Product table have also, by construction, all its values non-negatives. 
 
 \Cref{tab2} shows the Fuel-Product table of the TGAS plant, obtained by means of the previous equations, and \cref{fig1} is the corresponding fuel-product diagram, which is graphic representation of the table.
 \begin{table}[htbp]
@@ -171,12 +177,15 @@ Moreover, the elements of the Fuel-Product table have also, by construction, all
 	\end{tabularx}
 	\label{tab2}
 \end{table}
-\begin{figure}[h!]
+
+This table show as the production of the combustion chamber and the combustor are used as fuel in the turbine and HRSG, and also a part of its exergy is not used and therefore dissipated in the stack. The production of the turbine is used part in the compressor and part as final product, and all the production of the HRSG is final product. 
+
+\begin{figure}[H]
 \includegraphics[width=0.85\linewidth]{tgasfp_exergy}
 \caption{Fuel-Product Diagram of the TGAS plant}
 \label{fig1}
 \end{figure}
-This table show as the production of the combustion chamber and the combustor are used as fuel in the turbine and HRSG, and also a part of its exergy is not used and therefore dissipated in the stack. The production of the turbine is used part in the compressor and part as final product, and all the production of the HRSG is final product.
+
 
 \subsection{The Dissipative Processes Table}
 The objective of any energy system is to obtain final products by processing external resources, but in the same manner that these products are obtained, other no desirable flows, called wastes are obtained \cite{Residues2007}. The resources consumed to produce and dispose of these flows must be charged to the final products. Hence, the system outputs $\vm{P}_0$ can be splits in two parts, the final products $\vm{P}_s$, and the wastes $\vm{P}_r$, so that:
@@ -461,7 +470,7 @@ A square matrix \vm{A} is said to be \emph{diagonal dominant} if for every row o
 and it is called \emph{strictly} diagonal dominant if it at least exists a row $i_0$
 so that: $\sum_{j}{\left| a_{i_0 j} \right|} > 0$
 
-A matrix \vm{A} is said positive if all its elements $a_{ij}\ge0$, and at least one element is bigger than zero. 
+A matrix \vm{A} is said positive if all its elements $a_{ij}\ge0$, and at least one element is bigger than zero.
 
 A positive matrix \vm{B} is called \emph{productive} \cite{Gale89} if there is a vector $\vm{x}_0$ so that
 $\vm{B}\,\vm{x}_0 < \vm{x}_0$
@@ -478,7 +487,8 @@ Consider the matrix $\vm{A}=\mdiag{U}-\vm{B}$, and $\vm{B}>0$. The matrix \vm{A}
 	\item $\displaystyle{\lim_{k\rightarrow\infty}\vm{B}^k=0}$, and 
 	$\minv{A}=\vm{U}+\displaystyle{\sum_{k=1}^{\infty}{\vm{B}^{k}}}$	
 \end{compactenum}	
-M-matrices has also important properties in relation with numerical analysis. In particular, the LU factorization of an M-matrix is guaranteed to exist and can be stably computed without need for numerical pivoting.
+M-matrices has also important properties in relation with numerical analysis. In particular, the LU factors of an M-matrix are guaranteed to exist and can be stably computed
+without need for numerical pivoting.
 
 \section*{Nomenclature}
 \begin{nomenclatura}[3em]{Scalars}
@@ -528,11 +538,7 @@ M-matrices has also important properties in relation with numerical analysis. In
 	\entry{P}{Related to process product}
 	\entry{R}{Related to wastes/residues}
 \end{nomenclatura}
-\begin{nomenclatura}[3em]{Abbreviations}
-	\entry{ECT}{Exergy Cost Theory}
-	\entry{ExIO}{Thermoeconomic Input-Output Analysys/Symbolic Exergoeconomics}
-	\entry{TEC}{Thermoecological Cost}	
-\end{nomenclatura}		
+	
 \begin{thebibliography}{11}
 \addcontentsline{toc}{section}{References}
 \setlength{\itemsep}{0pt}

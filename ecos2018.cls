@@ -37,30 +37,29 @@ linkcolor=blue,pdfstartview=FitH]{hyperref}
 \captionsetup[subtable]{justification=centering}
 %Parameters and lenghts
 \parindent 0pt
-\parskip 6pt plus 2pt minus 0pt
+\parskip 6pt plus 1pt minus 0pt
 %Redefine values
-\renewcommand\figurename{Figure}
+\renewcommand\figurename{Fig.}
 \renewcommand\tablename{Table}
 \renewcommand\appendixname{Appendix}
 \renewcommand\refname{References}
 \renewcommand\abstractname{Abstract}
-
 %Sections definitions
 \renewcommand\@seccntformat[1]{{\csname the#1\endcsname}\hspace{0.3em}}
 \renewcommand{\thesection}{\arabic{section}.}
 \renewcommand{\section}{\@startsection {section}{1}{0pt}
-                        {1.2\baselineskip}
-                        {0.5\baselineskip}
+                        {\baselineskip}
+                        {0.1\baselineskip}
                         {\fontsize{16}{16pt}\selectfont\sffamily\bfseries}}
 \renewcommand{\thesubsection}{\thesection\arabic{subsection}}
 \renewcommand{\subsection}{\@startsection {subsection}{1}{0pt}
-                       {\baselineskip}
-                        {0.5\baselineskip}
+                        {1.2\baselineskip}
+                        {0.1\baselineskip}
                         {\fontsize{13}{13pt}\selectfont\sffamily\bfseries}}
 \renewcommand{\thesubsubsection}{\thesubsection\arabic{subsubsection}}
 \renewcommand{\subsubsection}{\@startsection {subsubsection}{1}{0pt}
-	{0.2\baselineskip}
-	{0.2\baselineskip}
+	{0.01\baselineskip}
+	{0.01\baselineskip}
 	{\fontsize{11}{11pt}\selectfont\sffamily\bfseries}}
 %\pagestyle{empty}		
 \pagestyle{plain}	
@@ -69,7 +68,7 @@ linkcolor=blue,pdfstartview=FitH]{hyperref}
 \widowpenalty 10000
 \hfuzz1pt
 \tolerance 1000
-\predisplaypenalty 1000
+\predisplaypenalty 100
 %\sloppy
 \setlength{\emergencystretch}{12pt}
 %\renewcommand{\baselinestretch}{0.95}
@@ -107,13 +106,9 @@ linkcolor=blue,pdfstartview=FitH]{hyperref}
   \newpage
   \vspace*{-20mm}
   \begin{flushright}
-  {\setstretch{1.2}\fontfamily{pbk}\fontsize{8}{8pt}\selectfont
-  PROCEEDINGS OF ECOS 2018 - THE 31\textsuperscript{ST} INTERNATIONAL CONFERENCE ON \\
-  {\bf E}FFICIENCY, {\bf C}OST, {\bf O}PTIMIZATION, {\bf S}IMULATION AND ENVIRONMENTAL IMPACT OF ENERGY SYSTEMS \\
-  JUNE 17 - JUNE 22, 2018, GUIMAR\~AES, PORTUGAL\par
-  }
+  \includegraphics{header.pdf}
   \end{flushright} 
-  \vspace*{16pt}
+  \vspace*{6pt}
   \begin{center}
     {\fontsize{18}{18pt}\selectfont\sffamily\bfseries\@title \par}%%
     \vspace{18pt}%
