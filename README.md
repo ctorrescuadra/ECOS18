@@ -1,4 +1,4 @@
-# A new methodology to compute Exergy Cost.
+# A new methodology to compute the Exergy Cost.
 
 
 **Paper publised in:** ECOS 2018
