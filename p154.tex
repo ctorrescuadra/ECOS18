@@ -47,9 +47,9 @@
 
 \begin{abstract}%
 \begin{spacing}{1.1}
-The aim of the second part of the paper is to integrate the new approach to compute exergy costs introduced in the first part into Thermoeconomic Input-Output analysis (henceforth ExIO). ExIO is a methodology derived from the Exergy Cost Theory to analyse the cost formation process of energy-intensive
-consumption systems. This paper introduces a new and more efficient algorithm to compute the Fuel-Product table, the keycorner of ExIO, as well as a new strategy for computing exergy costs. 
-As application of ExIO, a general formula to compute and analise the irreversibility and waste depletion footprint on the production costs, which includes external costs assessment of system resources, is introduced.
+The aim of the second part of the paper is to integrate the new approach to compute exergy costs introduced in the first part into Thermoeconomic Input-Output analysis (henceforth ExIO). ExIO is a methodology derived from the Exergy Cost theory to analyze the cost formation process of energy-intensive
+consumption systems. This paper introduces a new and more efficient algorithm to compute the Fuel-Product table, the keystone of ExIO, as well as a new strategy for computing exergy costs. 
+As application of ExIO, a general formula to compute and analyze the irreversibility and waste depletion footprint on the production costs, which includes external costs assessment of system resources, is introduced.
 \end{spacing}
 \end{abstract}
 
@@ -58,13 +58,13 @@ Exergy Cost Theory, Thermoeconomics, Productive models
 \end{keywords}
 
 \section{Introduction}
-Thermoeconomic input-output (aka Symbolic thermoeconomics) is a methodology, based on the exergy cost theory \cite{Torres2017}, for the analysis of the productive structure, and the natural resources consumption process in energy systems.
+Thermoeconomic input-output (aka Symbolic thermoeconomics) is a methodology, based on the Exergy Cost theory \cite{Torres2017}, for the analysis of the productive structure, and the natural resources consumption process in energy systems.
 
-Symbolic Exergoeconomics \cite{Torres1988}, was introduced in 1988, as a technique to obtain general equations, which relate the overall efficiency of an energy system and other thermoeconomic variables as fuel, product, exergy cost, with the efficiency and irreversibility of each component which forms it. By means of these equations, it is possible to analyse the influence of the individual components of the total system. The proposed analysis provides valuable tools for cost accounting, diagnosis, optimization and synthesis of energy system \cite{TADEUS2004,ISE2010}.
+Symbolic Exergoeconomics \cite{Torres1988}, was introduced in 1988, as a technique to obtain general equations, which relate the overall efficiency of an energy system and other thermoeconomic variables as fuel, product, exergy cost, with the efficiency and irreversibility of each component which forms it. By means of these equations, it is possible to analyze the influence of the individual components of the total system. The proposed analysis provides valuable tools for cost accounting, diagnosis, optimization and synthesis of energy system \cite{TADEUS2004,ISE2010}.
 
-The methodology presented in the first part of the paper will be applied to provide a new algorithm to compute the Fuel-Product table, which is the keycorner of ExIO, as well as a more efficient strategy to compute the production costs.
+The methodology presented in the first part of the paper will be applied to provide a new algorithm to compute the Fuel-Product table, which is the keystone of ExIO, as well as a more efficient strategy to compute the production costs.
 
-The irreversibility cost formula \cite{Torres09} permits to compute the direct exergy cost as the cumulative exergy consumption, adding to the exergy content all the irreversibility generates to obtain the system products. This formula is valid only if the cost of external equals its exergy. It means, that this only takes into account the irreversibility of the processes inside the boundaries of the system. But, the external resources have been produced by other systems, which also have exergy losses. The effects of these relations on the exergy cost can be analysed by modifying the external assessment of the resources, meanwhile, the way to distribute the cost, based on exergy, remains unaltered. The paper introduces a generalization of the irreversibility cost formula, that includes the cost of external resources.
+The irreversibility cost formula \cite{Torres09} permits to compute the direct exergy cost as the cumulative exergy consumption, adding to the exergy content all the irreversibility generates to obtain the system products. This formula is valid only if the cost of external equals its exergy. It means, that this only takes into account the irreversibility of the processes inside the boundaries of the system. But, the external resources have been produced by other systems, which also have exergy losses. The effects of these relations on the exergy cost can be analyzed by modifying the external assessment of the resources, meanwhile, the way to distribute the cost, based on exergy, remains unaltered. The paper introduces a generalization of the irreversibility cost formula, that includes the cost of external resources.
 
 To illustrate the proposed methodology, we use the example of a gas turbine cogeneration cycle (TGAS) that produce 10 MW of electric power and evaporates 8 kg/s of water at 20 bar of pressure. Its physical and productive structure are described in part I.
  
@@ -113,7 +113,7 @@ where $\vm{F}_e=\tm(E_{01},\ldots,E_{0n})$ is a $n \times 1$ vector which contai
 The second law states that the resources input each process must be always greater than or equal to its production, therefore: $\vm{F}-\vm{P}=\vm{I} \ge \vm{0}$, where $\vm{I}$~ is a $n \times 1$ vector whose elements contain the irreversibility of each process.
 
 \subsection{The FP Table Builder}
-The fuel-product table is obtained from the analysis of the productive structure of the system. In the case of aggregated systems with a few number of processes under analysis, it could be done graphically, but this method is not feasible for complex structures. In ref.~\cite{TAESS} is described a method to obtain this table using the matrices of the ECT equations model.
+The Fuel-Product table is obtained from the analysis of the productive structure of the system. In the case of aggregated systems with a few number of processes under analysis, it could be done graphically, but this method is not feasible for complex structures. In ref.~\cite{TAESS} is described a method to obtain this table using the matrices of the ECT equations model.
 
 In this paper, a new method based on the flow-process table is presented. It intends to be more efficient, and to solve some problems for complex structures that appears in the original method based on ECT.
 
@@ -145,7 +145,7 @@ Replacing \cref{eq:etablefp} into \cref{eq:efpb}, it leads:
 Therefore, let define:
 \begin{align}
 [\vm{E}] &\equiv [\vm{P}]\, \vm{M}\,\bm{\alpha}_F \label{eq:ectfp}\\
-\tvm{F}_e &\equiv \bm{\nu}_0\,\vm{M}\,\bm{\alpha}_F \label{eq:ectfp2}\\ 
+\tvm{F}_e &\equiv \tm\bm{\nu}_0\,\vm{M}\,\bm{\alpha}_F \label{eq:ectfp2}\\ 
 \vm{P}_0 &\equiv [\vm{P}]\, \vm{M}\,\vm{a}_P \label{eq:ectfp3}
 \end{align}
 The elements of the Fuel-Product table have by construction, all its values non-negatives. 
@@ -178,7 +178,7 @@ By \cref{eq:umb}, it leads: $\vm{M}\left(\vm{a}_P+\bm{\alpha}_F\,\vm{u}_n\right)
 	\label{tab2}
 \end{table}
 
-This table show as the production of the combustion chamber and the combustor are used as fuel in the turbine and HRSG, and also a part of its exergy is not used and therefore dissipated in the stack. The production of the turbine is used part in the compressor and part as final product, and all the production of the HRSG is final product. 
+This table show as the production of the combustion chamber and the combustor are used as fuel in the turbine and HRSG, and also as a part of its exergy is not used and therefore dissipated in the stack. The production of the turbine is used part in the compressor and part as final product, and all the production of the HRSG is final product. 
 
 \begin{figure}[H]
 \includegraphics[width=0.85\linewidth]{tgasfp_exergy}
@@ -193,7 +193,7 @@ The objective of any energy system is to obtain final products by processing ext
 \vm{P}_s&=\mbt{P}\,\vm{M}\,\vm{a}_s \\
 \vm{P}_r&=\mbt{P}\,\vm{M}\,\vm{a}_r 
 \end{align}
-where $\vm{a}_s$ and $\vm{a}_r$ are $n \times 1$ vectors, whose elements indicates if the flow is a final product or a waste.
+where $\vm{a}_s$ and $\vm{a}_r$ are $n \times 1$ vectors, whose elements indicates if the flow is a final product or a waste, and $\mathcal{R}$ is the the set of waste flows, defined in the part I.
 \begin{equation}
 a_{r,i}=\begin{cases}
 1 & i\in\mathcal{E}_0 \cup \mathcal{R} \\
@@ -210,7 +210,7 @@ In the same way, there is a productive table for the processes, there is also a 
 \vm{P} _r & = \mbt{D} \vm{u} _n \\
 \tvm{R} & = \tvm{u} _n \mbt{D}
 \end {align}
-where \vm{R} is a $n \times 1$ vector, whose elements represent the exergy of the waste produced by each component. The dissipative table performs the same function that the waste table at the process level. It could be obtained from the waste table as:
+where \vm{R} is a $n \times 1$ vector, whose elements represent the exergy of the waste produced by each component. The dissipative table performs the same function that the waste table, described in part I, at the process level. It could be obtained from the waste table as:
 \begin{equation}
 \label{eq:rctfpdd}
 \mbt{D} \equiv \mbt{P} \, \vm{M} \, \bm{\alpha}_R
@@ -225,7 +225,7 @@ The Fuel-Product-Waste table is the first stage to identify the cost formation p
 \vm{C}_R&=\tm\mbt{R}\,\vm{c} = \tm\bm{\alpha}_R\,\vm{C} \label{eq:crr} \\
 \vm{C}_P&=\vm{C}_F+\vm{C}_R+\vm{Z}
 \end{align}
-The cost of flows could be expressed as a function of the production costs of processes as:
+The costs of flows could be expressed as a function of the production costs of processes as:
 \begin{equation}
 \label{eq:ccp}
 \vm{C}=\tvm{M}\left(\vm{C}_0 + \tm\mbt{P}\,\vm{c}_P\right)
@@ -237,7 +237,7 @@ Then, replacing \cref{eq:ccp} into equations \cref{eq:cff,eq:crr}, and applying 
 \end{equation}
 where $\vm{C}_e= \tm\left(\vm{M} \bm{\alpha}_F \right) \, \vm{C}_0 + \vm{Z}$, is a $n\times 1$ vector, whose elements contain the cost of external resources used in each process.
 
-The above equations will let to determine the production costs of the process. \Cref{eq:ccp} calculates the exergy cost of flows, once the production costs have been computed.
+The above equations will let to determine the production costs of the processes. \Cref{eq:ccp} let calculate the exergy costs of flows, once the production costs have been computed.
 
 \section{The Demand-Driven Model}
 In this section, we make a review of the demand-driven model, aka PF representation \cite{Torres09}, including both the cost allocation of product and waste.
@@ -345,8 +345,9 @@ Left multiply both sides by \mopd{P}, then it leads:
 \label{eq:dicf}
 \tvm{k}_P^*=\tvm{u} + \tvm{u}\mopd{I}+\tvm{u}\mopd{R}
 \end{equation}
-This formula shows that the direct exergy cost is the sum of the contribution of the irreversibility are given by the values of matrix $\mopd{I}$ and the wastes are given by the matrix $\mopd{R}$. Due that both matrices are positives, the minimum production cost value will be 1, in  the case no irreversibility or wastes will be produced. Moreover, since $\mopd{P}\ge\mdiag{U}$, it leads to $\vm{k}_P^*\ge\vm{k}$.
+This formula shows that the direct exergy cost is the sum of the contribution of the irreversibility are given by the values of matrix $\mopd{I}$ and the wastes are given by the matrix $\mopd{R}$. 
 
+Due that both matrices are positives, the minimum production cost value will be 1, in  the case no irreversibility or wastes will be produced. Moreover, since $\mopd{P}\ge\vm{U}_n$, it leads to $\vm{k}_P^*\ge\vm{k}$.
 It means that the production direct exergy cost of any process will be always bigger or equal to its local consumption because the production cost of a process includes both its internal irreversibility and all the irreversibility generates to obtain the fuel of this process. \Cref{tab3} shows the values of direct exergy cost for TGAS plant, decomposed by the contribution of the irreversibility and wastes.
 \begin{table}[htbp]
 	\caption{Direct exergy production cost decomposition of TGAS Plant}
@@ -389,9 +390,13 @@ Therefore, combining with \cref{eq:vcp}, the following system of linear equation
 \begin{equation}
 \tm\left(\mdiag{U}-\mbr{PF}\right)\,\vm{c}_{e}^{*}=\vm{c}_{e}
 \end{equation}
-which let to determine the irreversibility cost factor as a function of the internal productive structure $\mbr{PF}$ and the cost of the external resources. Note that, in case of the direct exergy cost, $\vm{c}_e = \vm{q}_e$.  By definition of the exergy junction ratios, \cref{eq:vmqe}, the irreversibility cost ratio is: $\vm{c}_{e}^{*}=\tvm{u}$.
+which let to determine the irreversibility cost factor as a function of the internal productive structure $\mbr{PF}$ and the cost of the external resources. Note that, in case of the direct exergy cost, $\vm{c}_e = \vm{q}_e$.  By definition of the exergy junction ratios, \cref{eq:vmqe}, the irreversibility cost ratio is: $\vm{c}_{e}^{*}=\vm{u}$.
 
 By means of the generalized irreversibility-cost formula, it is possible to split the contribution of the external resources from the internal exergy destruction. The irreversibility cost factor plays two roles in the formula, first, it is the cost of inflows to the system used in each process, i.e it accounts the irreversibility outside the system boundaries, and second, it is the cost of the exergy destruction of the processes inside the system boundaries.
+
+To illustrate the application of the irreversibility cost formula, we will calculate the thermoecological cost footprint for the TGAS plant. The boundaries of the system has been extended to consider the extraction, processing, and transportation to the plant of the natural gas, as well the abatement of \ce{CO2}. 
+
+The following assumptions to compute the TEC of external resources are taken \cite{Uson2015}: a value of the of~1.082 kW/kW NG (Domestic NG including \ce{CH4} emissions) for the unit cost of NG, and a value of 0.238 kW/kW NG for \ce{CO2} abatement cost. Finally, we also include the amortization, maintenance and operation costs of the plant processes $Z$. They have been calculated from ref \cite{CGAM1994}, and converted to energy unit, using as conversion factor a price for natural gas of 20\$/MWh. In this example, the abatement costs of \ce{CO2} are considered as an external cost assessed to the stack process. These values are summarized in \cref{tab4}.
 
 \begin{table}[htbp]
 	\caption{Estimation of external resources costs (kW) for TGAS Plant}
@@ -407,7 +412,7 @@ By means of the generalized irreversibility-cost formula, it is possible to spli
 \end{table}%
 
 \begin{table}[htbp]
-	\caption{Exergoecologic production cost decomposition on TGAS Plant (kW/kW)}
+	\caption{Thermoecological production cost decomposition on TGAS Plant (kW/kW)}
 	\begin{tabularx}{0.8\textwidth}{cZZZZZ}
 		\addlinespace
 		\toprule
@@ -427,11 +432,7 @@ By means of the generalized irreversibility-cost formula, it is possible to spli
 	\label{tab5}
 \end{table}
 
-To illustrate the application of the irreversibility cost formula, we will calculate the thermoecological cost footprint for the TGAS plant. The boundaries of the system has been extended to consider the extraction, processing, and transportation to the plant of the natural gas, as well the abatement of \ce{CO2}. 
-
-The following assumptions to compute the TEC of external resources are taken \cite{Uson2015}: a value of the of~1.082 kW/kW NG (Domestic NG including \ce{CH4} emissions) for the unit cost of NG, and a value of 0.238 kW/kW NG for \ce{CO2} abatement cost.  Finally, we also include the amortization, maintenance and operation costs of the plant processes $Z$. They have been calculated from ref \cite{CGAM1994}, and converted to energy unit, using as conversion factor a price of natural gas of 20\$/MWh. The abatement cost of \ce{CO2} is considered as an external cost associated with the stack process, and it supposes more than two times the installation costs.
-
-\Cref{tab5} show the TEC costs of TGAS plant using the external resources cost values from \cref{tab4}, and \cref{fig2} compares the values of direct and thermoecological costs.
+\Cref{tab5} shows the TEC costs of TGAS plant using the external resources cost values from \cref{tab4}, and \cref{fig2} compares the values of direct and thermoecological costs.
 The I-rows represent the contribution of the irreversibility of the $i$-th process to the unit cost and the R-row represents the contribution of the wastes. The abatement exergy cost of combustion gases, including both \ce{CO2}  and thermal losses is 6.53 times the exergy of the dissipated gases. This cost is redistributed to the final products of the plant and suppose near 20\% of the total cost.  
 
 \begin{figure}[htpb]
@@ -451,11 +452,11 @@ The I-rows represent the contribution of the irreversibility of the $i$-th proce
 \section{Conclusions}
 This collection of two papers introduces a new methodology to compute exergy costs, which aim is to improve the software implementation of the Exergy Cost Theory. It combines graph theory, linear economic models with the allocation rules of the ECT.
 
-Thermoeconomic Input-Output analysis is an extension of the Exergy Cost Theory, whose objective is to analyse the cost formation processes of product and wastes. The Fuel-Product table provides a productive scheme which shows the relationships between the system processes, and it is the first stage to identify the production costs formation.
+Thermoeconomic Input-Output analysis is an extension of the Exergy Cost theory, whose objective is to analyze the cost formation process of products and wastes. The Fuel-Product table provides a productive scheme which shows the relationships between the system processes.
 
-By means of the Fuel-Product table, it is possible to provide general formulas that relates the global parameters of the system with the local efficiency of the processes that constitute the system. In particular, the irreversibility cost formula, that related the production costs with the local irreversibility of the processes.It calculate the direct exergy cost as the cumulative exergy consumption, adding to the exergy content all the irreversibility generates to obtain the system products. 
+By means of the Fuel-Product table, it is possible to provide general formulas that relates the global parameters of the system with the local efficiency of the processes that constitute the system. In particular, the irreversibility cost formula, that related the production costs with the local irreversibility of the processes. It calculate the direct exergy cost as the cumulative exergy consumption, adding to the exergy content all the irreversibilities generates to obtain the system products. 
 
-The second part of the paper make two important contributions on this field:
+The second part of the paper makes two important contributions:
 \begin{elist}
 	\item A new and more efficient algorithm to compute the Fuel-Product and Waste tables.
 	\item The generalized irreversibility cost formula, which extends the analysis of the irreversibility and waste depletion footprint to thermoecological costs.   
@@ -512,7 +513,7 @@ without need for numerical pivoting.
 	\entry{$\mbr{KR}$}{Waste generation ratios matrix $(n\times n)$}
 	\entry{$\vm{k}$}{Vector of unit consumption of processes $(n\times 1)$}
 	\entry{$\vm{k}_P^{*}$}{Vector of unit direct exergy production costs $(n\times 1)$}
-	\entry{$\vm{c}_P$}{Vector of unit exergy production costs (TEC) $(n\times 1)$}
+	\entry{$\vm{c}_P$}{Vector of unit exergy production costs $(n\times 1)$}
 	\entry{$\vm{q}_e$}{Vector of external junction ratios $(n\times 1)$}
 	\entry{$\vm{k}_e$}{Vector of unit consumption vector $(n\times 1)$}
 	\entry{$\vm{c}_e$}{Vector of unit exergy cost of external resources $(n\times 1)$}

@@ -3,7 +3,7 @@
 %   filename:      ecos2018.cls
 %   version:       1.0
 %   date:          10-1-2017
-%   ported by:     César Torres Cuadra
+%   ported by:     CÃ©sar Torres Cuadra
 %   address:       CIRCE
 %   e-mail:        ctorresc@unizar.es
 %   description:   This is a LaTeX2e style file for the ECOS 2018
