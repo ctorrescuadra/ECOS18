@@ -1,6 +1,5 @@
 # A new methodology to compute the Exergy Cost.
 
-
 **Paper publised in:** ECOS 2018
  
 **Authors:** César Torres and Antonio Valero
