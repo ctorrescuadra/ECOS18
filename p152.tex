@@ -80,7 +80,7 @@ The algebraic method, provided by ECT, to calculate exergy costs has some drawba
 
 The aim of this paper is to introduce a new methodology to compute exergy costs, which combines graph theory an linear models with the allocation rules of ECT. This methodology will provide a rigorous mathematical approach that gives solutions to the cost allocation problem formulated above.
 
-From a theoretical viewpoint, an energy system is defined beforehand as a set of subsystems or thermodynamic processes linked to each other and to the environment by another set of mass, heat, and work flows, quantified by its exergies. In essence, it constitutes a flowsheet, as it is shown in \cref{fig1}. This example represents a gas turbine cycle (henceforth called TGAS) that uses natural gas (flow \#5) to produces 10 MW of electric power (flow \# 6) and evaporates 8 kg/s of water at 20 bar of pressure, partially recovering the residual heat of gases. The exergy flow \#8 is calculated as the difference between the exergy of the saturated steam and and the inlet water. Finally, the waste combustion gases are expelled through a stack (flow \#9). This flowsheet indicates also the system boundaries and the aggregation level. The exergy values of the plant flows are show in \cref{tab4}.  
+From a theoretical viewpoint, an energy system is defined beforehand as a set of subsystems or thermodynamic processes linked to each other and to the environment by another set of mass, heat, and work flows, quantified by its exergies. In essence, it constitutes a flow sheet, as it is shown in \cref{fig1}. This example represents a gas turbine cycle (henceforth called TGAS) that uses natural gas (flow \#5) to produces 10 MW of electric power (flow \# 6) and evaporates 8 kg/s of water at 20 bar of pressure, partially recovering the residual heat of gases. The exergy flow \#8 is calculated as the difference between the exergy of the saturated steam and and the inlet water. Finally, the waste combustion gases are expelled through a stack (flow \#9). This flowsheet indicates also the system boundaries and the aggregation level. The exergy values of the plant flows are show in \cref{tab4}.  
 
 \begin{figure}[h]
 	\centering
@@ -227,7 +227,7 @@ v_{i,j}=\begin{cases}
 \;y_j\,E_i & i\in\mathcal{E}_l,\, j\in\mathcal{S}_l,\, \ell\in\mathcal{P}_u\\
 \end{cases}
 \end{equation}
-The vector $\bm{\nu}_0 (1 \times m)$ contains the exergy values of the external resources, and the vector $\bm{\omega}_0 (m \times 1)$ contains the exergy values of the system outputs:
+The vector $\bm{\nu}_0 (m \times 1)$ contains the exergy values of the external resources, and the vector $\bm{\omega}_0 (m \times 1)$ contains the exergy values of the system outputs:
 \begin{equation}
 \nu_{0,i}=\begin{cases}
 \;E_i & i\in\mathcal{S}_0 \\
@@ -288,9 +288,9 @@ This information can be summarized by the flow-process table, see \cref{fig4}, w
 Let \vm{F} and \vm{P} to be $n\times1$ vectors, whose elements are the fuel and product of the processes, and \vm{E} a $m\times1$ vector, whose elements are the exergy of the flows. We will denote by $\tvm{u}_n\equiv(1,\ldots,1)$ the unitary row vector of dimension $n$.
 The submatrices of the flow-process table verify the following properties:
 \begin{align}
-\vm{F}&=\tvm{u}_m\,[\vm{F}] \\
+\vm{F}&=\tm[\vm{F}]\,\vm{u}_m \\
 \vm{P}&=[\vm{P}]\,\vm{u}_m \\
-\vm{E}&=\bm{\omega}_0 + [\vm{F}]\,\vm{u}_n + [\vm{V}]\,\vm{u}_m = \tm\bm{\nu}_0 + \tm[\vm{P}]\,\vm{u}_n + \tm[\vm{V}]\,\vm{u}_m
+\vm{E}&=\bm{\omega}_0 + [\vm{F}]\,\vm{u}_n + [\vm{V}]\,\vm{u}_m = \bm{\nu}_0 + \tm[\vm{P}]\,\vm{u}_n + \tm[\vm{V}]\,\vm{u}_m
 \end{align}
 The rows of \cref{tab2a} reflect the use inputs of flows in processes, meanwhile the columns the output flows produced by process. In \cref{tab3} it is shown the flow-process table corresponding to the TGAS plant. Observe that the lower-left part of the table $\mbt{F}$ contains the fuel definition of the processes, and the upper-right part $\mbt{P}$ contains the product definition. The lower-right part $\mbt{V}$ is used to close the input-output flows balance.
 
